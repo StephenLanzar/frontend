@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attendance</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h2>ATTEND-EASE</h2>
+    <a href="Dashboard.html">Dashboard</a>
+    <a href="Class.html">Classes</a>
+    <a href="Student.html">Students</a>
+    <a href="Attendance.html" class="active">Attendance</a>
+    <a href="Records.html">Records</a>
+
+    <button class="dark-toggle" onclick="document.body.classList.toggle('dark-mode')"></button>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <div class="topbar">
+      <p class="header-text">Attendance</p>
+    </div>
+
+    <div class="attendance-card">
+
+      <div class="attendance-row">
+
+        <!-- CLASS YEAR -->
+        <div class="attendance-field">
+          <label>Class Year</label>
+          <select id="classYear">
+            <option value="">-- Select Year --</option>
+            <option value="1">2025-2026</option>
+            <option value="2">2024-2023</option>
+            <option value="3">2023-2022</option>
+            <option value="4">2022-2021</option>
+          </select>
+        </div>
+
+        <!-- CLASS SEMESTER -->
+        <div class="attendance-field">
+          <label>Semester</label>
+          <select id="classSemester">
+            <option value="">-- Select Semester --</option>
+            <option value="1">1st Semester</option>
+            <option value="2">2nd Semester</option>
+          </select>
+        </div>
+
+        <!-- SUBJECT DROPDOWN -->
+        <div class="attendance-field">
+          <label>Select Subject</label>
+          <select id="subjectSelect">
+            <option value="">-- Choose Subject --</option>
+            <option value="math">Mathematics</option>
+            <option value="science">Science</option>
+            <option value="english">English</option>
+          </select>
+        </div>
+
+        <!-- SUBJECT DESCRIPTION -->
+        <div class="attendance-field">
+          <label>Description</label>
+          <input type="text" id="subjectDesc" readonly>
+        </div>
+
+        <!-- DAY MOVED BEFORE TIME -->
+        <div class="attendance-field">
+          <label>Day</label>
+          <input type="text" id="dayField" readonly>
+        </div>
+
+        <!-- TIME FROM -->
+        <div class="attendance-field">
+          <label>Time From</label>
+          <input type="time" id="timeFrom" readonly>
+        </div>
+
+        <!-- TIME TO -->
+        <div class="attendance-field">
+          <label>Time To</label>
+          <input type="time" id="timeTo" readonly>
+        </div>
+
+        <!-- SCREENSHOT UPLOAD WITH PREVIEW SPACE -->
+        <div class="attendance-field">
+          <label>Upload Screenshot</label>
+          <input type="file" id="screenshotUpload" accept="image/*">
+          <img id="previewImg" style="margin-top:10px; max-width:150px; display:none; border:1px solid #ccc; border-radius:5px;" />
+        </div>
+
+      </div>
+
+      <button class="attendance-btn">Take Attendance</button>
+
+    </div>
+
+    <!-- STUDENT ATTENDANCE LIST -->
+    <div class="attendance-students">
+
+      <!-- SINGLE STUDENT CARD -->
+      <div class="student-att-card">
+        <p class="student-name">James William</p>
+        <p class="student-status regular">Regular</p>
+
+        <div class="att-buttons">
+          <span class="att-btn present">P</span>
+          <span class="att-btn absent">A</span>
+          <span class="att-btn late">L</span>
+        </div>
+      </div>
+
+      <!-- STUDENT 2 -->
+      <div class="student-att-card">
+        <p class="student-name">Jack David</p>
+        <p class="student-status irregular">Irregular</p>
+
+        <div class="att-buttons">
+          <span class="att-btn present">P</span>
+          <span class="att-btn absent">A</span>
+          <span class="att-btn late">L</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SAVE RECORD BUTTON -->
+    <button class="attendance-btn">Save Record</button>
+
+
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    const subjectData = {
+      math: {
+        day: "Monday",
+        from: "08:00",
+        to: "09:30",
+        desc: "Basic Algebra & Geometry"
+      },
+      science: {
+        day: "Wednesday",
+        from: "10:00",
+        to: "11:30",
+        desc: "Biology & Earth Science"
+      },
+      english: {
+        day: "Friday",
+        from: "13:00",
+        to: "14:30",
+        desc: "Grammar, Reading & Writing"
+      }
+    };
+
+    document.getElementById("subjectSelect").addEventListener("change", function () {
+      const value = this.value;
+
+      if (subjectData[value]) {
+        document.getElementById("subjectDesc").value = subjectData[value].desc;
+        document.getElementById("dayField").value = subjectData[value].day;
+        document.getElementById("timeFrom").value = subjectData[value].from;
+        document.getElementById("timeTo").value = subjectData[value].to;
+      } else {
+        document.getElementById("subjectDesc").value = "";
+        document.getElementById("dayField").value = "";
+        document.getElementById("timeFrom").value = "";
+        document.getElementById("timeTo").value = "";
+      }
+    });
+
+    // Preview image script
+    document.getElementById("screenshotUpload").addEventListener("change", function() {
+      const file = this.files[0];
+      const preview = document.getElementById("previewImg");
+
+      if (file) {
+        preview.src = URL.createObjectURL(file);
+        preview.style.display = "block";
+      } else {
+        preview.style.display = "none";
+      }
+    });
+  </script>
+
+</body>
+</html>

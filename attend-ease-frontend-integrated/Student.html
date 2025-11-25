@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Students</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h2>ATTEND-EASE</h2>
+    <a href="Dashboard.html">Dashboard</a>
+    <a href="Class.html">Classes</a>
+    <a href="Student.html" class="active">Students</a>
+    <a href="Attendance.html">Attendance</a>
+    <a href="Records.html">Records</a>
+
+
+    <button class="dark-toggle" onclick="document.body.classList.toggle('dark-mode')"></button>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <div class="topbar">
+      <p class="header-text">Manage Students</p>
+    </div>
+
+    <div class="student-layout">
+
+      <!-- LEFT: STUDENT TABLE -->
+      <div class="student-table-card">
+        <h2>Students</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Student ID</th>
+              <th>Full Name</th>
+              <th>Enrolled Subject</th>
+              <th>Status</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th class="action-center">Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>1001</td>
+              <td>James M. William</td>
+              <td>ENG101</td>
+              <td>Regular</td>
+              <td>09123456789</td>
+              <td>james@example.com</td>
+              <td>
+                <div class="action-buttons">
+                  <button class="edit-btn">Edit</button>
+                  <button class="delete-btn">Delete</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>1002</td>
+              <td>Jack D. David</td>
+              <td>MATH201</td>
+              <td>Irregular</td>
+              <td>09987654321</td>
+              <td>jack@example.com</td>
+              <td>
+                <div class="action-buttons">
+                  <button class="edit-btn">Edit</button>
+                  <button class="delete-btn">Delete</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- RIGHT: UPDATED ADD STUDENT FORM -->
+      <div class="add-student-card">
+        <h2>Add Student</h2>
+
+        <label>Status</label>
+        <select>
+          <option>Regular Student</option>
+          <option>Irregular Student</option>
+        </select>
+
+        <label>Subject Code</label>
+        <select>
+          <option value="">Select Subject</option>
+          <option>ENG101 - English Grammar</option>
+          <option>MATH201 - Algebra</option>
+          <option>SCI301 - Biology</option>
+          <option>HIST110 - Philippine History</option>
+        </select>
+
+        <label>Student ID</label>
+        <input type="text" placeholder="Enter Student ID">
+
+        <label>First Name</label>
+        <input type="text" placeholder="Enter First Name">
+
+        <label>Middle Name</label>
+        <input type="text" placeholder="Enter Middle Name">
+
+        <label>Last Name</label>
+        <input type="text" placeholder="Enter Last Name">
+
+        <label>Phone Number</label>
+        <input type="text" placeholder="Enter Phone Number">
+
+        <label>Email Address</label>
+        <input type="email" placeholder="Enter Email Address">
+
+        <button class="btn">Add Student</button>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

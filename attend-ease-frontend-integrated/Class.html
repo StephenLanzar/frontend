@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classes</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <h2>ATTEND-EASE</h2>
+    <a href="Dashboard.html">Dashboard</a>
+    <a href="Class.html" class="active">Classes</a>
+    <a href="Student.html">Students</a>
+    <a href="Attendance.html">Attendance</a>
+    <a href="Records.html">Records</a>
+
+
+    <button class="dark-toggle" onclick="document.body.classList.toggle('dark-mode')"></button>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <p class="header-text">Manage Classes</p>
+    </div>
+
+   <div class="class-container">
+
+ <div class="class-container">
+
+  <!-- LEFT: Add Class Form -->
+  <div class="add-class-card">
+    <h2>Add Classes</h2>
+
+    <label>Program</label>
+    <input type="text" value="Bachelor of Science in Information Technology" disabled>
+
+    <label>Class Year</label>
+    <select>
+      <option>2025-2026</option>
+      <option>2024-2025</option>
+      <option>2023-2024</option>
+    </select>
+
+    <label>Semester</label>
+    <select>
+      <option>1st Semester</option>
+      <option>2nd Semester</option>
+    </select>
+
+    <label>Subject Code</label>
+    <input type="text" placeholder="Enter Subject Code">
+
+    <label>Subject Title</label>
+    <input type="text" placeholder="Enter Subject Title">
+
+    <label>Day</label>
+    <select>
+      <option>Monday</option>
+      <option>Tuesday</option>
+      <option>Wednesday</option>
+      <option>Thursday</option>
+      <option>Friday</option>
+      <option>Saturday</option>
+      <option>Sunday</option>
+    </select>
+
+    <label>Time</label>
+    <div class="time-row">
+      <input type="time"> 
+      <span class="time-label">to</span>
+      <input type="time">
+    </div>
+
+    <button class="btn">Add Class</button>
+  </div>
+
+  <!-- RIGHT: Class Table -->
+  <div class="class-table-card wide-table">
+    <h2>Classes</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Class ID</th>
+          <th>Year</th>
+          <th>Semester</th>
+          <th>Subject Code</th>
+          <th>Subject Title</th>
+          <th>Day</th>
+          <th>Time</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td class="year-nowrap">2025–2026</td>
+          <td>1st Semester</td>
+          <td>IT101</td>
+          <td>Intro to Computing</td>
+          <td>Monday</td>
+          <td class="time-nowrap">7:30 AM - 9:00 AM</td>
+
+
+   <td class="action-center">
+          <div class="action-buttons">
+            <button class="edit-btn"> Edit</button>
+            <button class="delete-btn"> Delete</button>
+</tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,154 @@
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <h2>ATTEND-EASE</h2>
+    <a href="Dashboard.html">Dashboard</a>
+    <a href="Class.html">Classes</a>
+    <a href="Student.html">Students</a>
+    <a href="Attendance.html">Attendance</a>
+    <a href="Records.html">Records</a>
+
+    <button class="dark-toggle" onclick="document.body.classList.toggle('dark-mode')"></button>
+  </div>
+
+<div class="main">
+  <div class="topbar">
+    <p class="header-text">A Web-Based Class Attendance Tracking System for BSIT - 3B</p>
+  </div>
+
+  <!-- DASHBOARD CARDS -->
+  <div class="dashboard-row">
+    
+
+<!-- PREVIEW IMAGE CARD -->
+<div class="dash-card preview-card">
+  <img src="your-image.jpg" alt="ScreenShot" class="preview-img">
+</div>
+
+
+    <div class="dash-card">
+      <h2>3</h2>
+      <p>Students</p>
+    </div>
+
+    <div class="dash-card">
+      <h2>2</h2>
+      <p>Student Present Today</p>
+    </div>
+
+  </div>
+
+<!-- Updated Today Attendance Section with Subject Title, Day, Time, and Filter -->
+
+<div class="attendance-table-card">
+  <div class="attendance-header-row" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+
+    <!-- LEFT: Title with Subject, Day, Time -->
+    <div>
+      <h2 style="margin:0">Today Attendance</h2>
+      <p style="margin:5px 0 0; opacity:0.8; font-size:14px;">
+        <strong>Subject:</strong> Web Systems & Technologies | 
+        <strong>Day:</strong> Monday | 
+        <strong>Time:</strong> 7:00 AM - 10:00 AM
+      </p>
+    </div>
+
+    <!-- RIGHT: Filter -->
+    <div>
+      <select id="attendanceFilter" class="attendance-filter" style="padding:8px 12px; border-radius:6px; border:1px solid var(--border); background:var(--card); color:var(--text);">
+        <option value="all">Show All</option>
+        <option value="present">Present</option>
+        <option value="absent">Absent</option>
+        <option value="late">Late</option>
+      </select>
+    </div>
+  </div>
+
+<table id="attendanceTable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Status</th>
+      <th>Subject Code</th>
+      <th>Contact #</th>
+      <th>Attendance</th>
+      <th>Today</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr data-status="present">
+      <td>James William</td>
+      <td>Regular</td>
+      <td>WS101</td>
+      <td>2147483647</td>
+      <td>
+        <div class="progress-bar">
+          <div class="progress green"></div>
+          <div class="progress gray"></div>
+          <div class="progress gray"></div>
+        </div>
+      </td>
+      <td><span class="present">Present</span></td>
+    </tr>
+
+    <tr data-status="absent">
+      <td>Jack David</td>
+      <td>Irregular</td>
+      <td>WS101</td>
+      <td>1232135988</td>
+      <td>
+        <div class="progress-bar">
+          <div class="progress green"></div>
+          <div class="progress gray"></div>
+          <div class="progress gray"></div>
+        </div>
+      </td>
+      <td><span class="absent">Absent</span></td>
+    </tr>
+
+    <tr data-status="late">
+      <td>Benny William</td>
+      <td>Regular</td>
+      <td>WS101</td>
+      <td>123100112</td>
+      <td>
+        <div class="progress-bar">
+          <div class="progress green full"></div>
+        </div>
+      </td>
+      <td>
+        <span class="late" style="background:#777; color:white; padding:5px 12px; border-radius:6px;">
+          Late
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+  // Filter Script
+  document.getElementById("attendanceFilter").addEventListener("change", function () {
+    const filter = this.value;
+    const rows = document.querySelectorAll("#attendanceTable tbody tr");
+
+    rows.forEach(row => {
+      const status = row.getAttribute("data-status");
+
+      if (filter === "all" || filter === status) {
+        row.style.display = "";
+      } else {
+        row.style.display = "none";
+      }
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Records</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <div class="sidebar">
+    <h2>ATTEND-EASE</h2>
+    <a href="Dashboard.html">Dashboard</a>
+    <a href="Class.html">Classes</a>
+    <a href="Student.html">Students</a>
+    <a href="Attendance.html">Attendance</a>
+    <a href="Records.html">Records</a>
+    <button class="dark-toggle" onclick="document.body.classList.toggle('dark-mode')"></button>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <p class="header-text">Attendance Records & Reports</p>
+    </div>
+
+    <!-- =============================== -->
+    <!--      GENERATE REPORTS SECTION   -->
+    <!-- =============================== -->
+
+    <div class="attendance-card" style="margin-top: 20px;">
+      <h2>Generate Reports (Excel)</h2>
+
+      <div class="attendance-row" style="flex-wrap: wrap; gap: 10px;">
+        <button class="attendance-btn">Daily Attendance Report</button>
+        <button class="attendance-btn">Monthly Attendance Summary</button>
+        <button class="attendance-btn">Per Subject Attendance Report</button>
+        <button class="attendance-btn">Per Class Year Report</button>
+        <button class="attendance-btn">Per Semester Report</button>
+        <button class="attendance-btn">Individual Student Report</button>
+        <button class="attendance-btn">Absenteeism Report</button>
+        <button class="attendance-btn">Tardiness Report</button>
+        <button class="attendance-btn">Weekly Attendance Report</button>
+        <button class="attendance-btn">Subject Overview Report</button>
+      </div>
+    </div>
+
+    <!-- =============================== -->
+    <!--         FILTER SECTION          -->
+    <!-- =============================== -->
+
+    <div class="attendance-card">
+      <h2>Filter Records</h2>
+
+      <div class="attendance-row">
+
+        <!-- Class Year -->
+        <div class="attendance-field">
+          <label>Class Year</label>
+          <select id="classYear">
+            <option value="all">All</option>
+            <option value="1st Year">1st Year</option>
+            <option value="2nd Year">2nd Year</option>
+            <option value="3rd Year">3rd Year</option>
+            <option value="4th Year">4th Year</option>
+          </select>
+        </div>
+
+        <!-- Semester -->
+        <div class="attendance-field">
+          <label>Semester</label>
+          <select id="semester">
+            <option value="all">All</option>
+            <option value="1st Semester">1st Semester</option>
+            <option value="2nd Semester">2nd Semester</option>
+          </select>
+        </div>
+
+        <!-- Subject Code -->
+        <div class="attendance-field">
+          <label>Subject Code</label>
+          <select id="subCode">
+            <option value="all">All</option>
+            <option value="WS101">WS101</option>
+            <option value="IM102">IM102</option>
+            <option value="NSTP1">NSTP1</option>
+          </select>
+        </div>
+
+        <!-- Subject Description -->
+        <div class="attendance-field">
+          <label>Subject Description</label>
+          <select id="subDesc">
+            <option value="all">All</option>
+            <option>Web Systems & Technologies</option>
+            <option>Information Management</option>
+            <option>National Service Training Program</option>
+          </select>
+        </div>
+
+        <!-- Date From -->
+        <div class="attendance-field">
+          <label>Date From</label>
+          <input type="date" id="dateFrom" />
+        </div>
+
+        <!-- Date To -->
+        <div class="attendance-field">
+          <label>Date To</label>
+          <input type="date" id="dateTo" />
+        </div>
+
+        <button class="attendance-btn" id="applyFilter">Apply Filter</button>
+      </div>
+    </div>
+
+    <!-- =============================== -->
+    <!--         RECORDS TABLE           -->
+    <!-- =============================== -->
+
+    <div class="attendance-table-card">
+      <h2>Attendance Logs</h2>
+
+      <table id="recordsTable">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Student</th>
+            <th>Class Year</th>
+            <th>Semester</th>
+            <th>Subject Code</th>
+            <th>Subject Description</th>
+            <th>Status</th>
+            <th>Time In</th>
+            <th>Time Out</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>2025-01-15</td>
+            <td>James William</td>
+            <td>3rd Year</td>
+            <td>1st Semester</td>
+            <td>WS101</td>
+            <td>Web Systems & Technologies</td>
+            <td><span class="present">Present</span></td>
+            <td>7:05 AM</td>
+            <td>9:58 AM</td>
+          </tr>
+
+          <tr>
+            <td>2025-01-15</td>
+            <td>Jack David</td>
+            <td>3rd Year</td>
+            <td>1st Semester</td>
+            <td>WS101</td>
+            <td>Web Systems & Technologies</td>
+            <td><span class="absent">Absent</span></td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+
+          <tr>
+            <td>2025-01-15</td>
+            <td>Benny William</td>
+            <td>3rd Year</td>
+            <td>1st Semester</td>
+            <td>WS101</td>
+            <td>Web Systems & Technologies</td>
+            <td><span class="late">Late</span></td>
+            <td>7:45 AM</td>
+            <td>10:00 AM</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button class="attendance-btn" style="margin-top: 20px;">Export to Excel</button>
+    </div>
+
+  </div>
+
+</body>
+</html>
